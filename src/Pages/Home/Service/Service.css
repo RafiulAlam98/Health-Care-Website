@@ -1,1 +1,23 @@
+.single-card {
+  border: 2px solid goldenrod;
+  margin-top: 10px;
+  background-color: #55B4B0;
+}
 
+.single-card:hover {
+  background-color: #00A170;
+}
+
+.card-btn {
+  width: 200px;
+  border: 1px solid goldenrod;
+  border-radius: 8px;
+  background-color: #1880D4;
+  color: white;
+}
+
+.card-btn:hover {
+  padding: 10px;
+  background-color: tomato;
+  font-size: large;
+}
