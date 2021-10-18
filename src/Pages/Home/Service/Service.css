@@ -1,15 +1,26 @@
 .single-card {
   border: 2px solid goldenrod;
   margin-top: 10px;
-  background-color: #55B4B0;
+  background-color: #45B8AC;
 }
 
 .single-card:hover {
   background-color: #00A170;
 }
 
+.card-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name-text-style {
+  color: #A2242F;
+}
+
 .card-btn {
   width: 200px;
+  height: 50px;
   border: 1px solid goldenrod;
   border-radius: 8px;
   background-color: #1880D4;
@@ -20,4 +31,17 @@
   padding: 10px;
   background-color: tomato;
   font-size: large;
+}
+@media only screen and (max-width: 688px) {
+  .card-info {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+  .card-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
