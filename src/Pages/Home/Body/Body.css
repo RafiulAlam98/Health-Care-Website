@@ -1,0 +1,26 @@
+.col-1-style {
+  background-image: url();
+  background-color: #1351A6;
+}
+
+.col-2-style {
+  background-color: #0A7AD6;
+}
+
+.col-3-style {
+  background-color: #1351A6;
+}
+
+.appointment-btn {
+
+  background-color: #0A7AD6;
+  border: 2px solid white;
+  border-radius: 7px;
+  color: white;
+  padding: 5px;
+}
+
+.appointment-btn:hover {
+  background-color: white;
+  color: #0A7AD6;
+}
