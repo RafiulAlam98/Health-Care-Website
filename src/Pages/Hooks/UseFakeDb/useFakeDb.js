@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 
-const Appointment = () => {
+const useFakeDb = () => {
   const [services, setServices] = useState([]);
-  const { serviceId } = useParams();
-  console.log(serviceId);
-
   useEffect(() => {
     fetch('./fakeDb.json')
       .then(res => res.json())
@@ -14,7 +10,7 @@ const Appointment = () => {
       });
   }, []);
 
-  return <div>{services.filter(service => console.log(service.id))}</div>;
+  return { services, setServices };
 };
 
-export default Appointment;
+export default useFakeDb;

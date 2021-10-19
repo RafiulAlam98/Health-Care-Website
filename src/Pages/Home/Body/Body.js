@@ -4,7 +4,7 @@ import './Body.css';
 
 const Body = () => {
   return (
-    <Container fluid>
+    <Container fluid className="mb-5">
       <Row>
         <Col
           xs={12}
@@ -12,8 +12,9 @@ const Body = () => {
           className="col-1-style d-flex flex-column justify-content-center align-items-center p-5"
         >
           <span>
-            <i class="far fa-clock"></i>
+            <i className="far fa-clock text-warning rounded fa-3x"></i>
           </span>
+          <br />
           <h4 className="text-white">OPEN HOURS</h4>
           <div className="d-flex flex-column">
             <h6>
@@ -35,6 +36,8 @@ const Body = () => {
           md={4}
           className="col-2-style d-flex flex-column justify-content-center align-items-center"
         >
+          <i className="far fa-calendar-check text-warning rounded fa-3x"></i>
+          <br />
           <h4 className="text-white">APPOINTMENT</h4>
           <p className="text-white">
             Appointment are available, call us today or book a appointment.
@@ -46,6 +49,10 @@ const Body = () => {
           md={4}
           className="col-3-style d-flex flex-column justify-content-center align-items-center"
         >
+          <span>
+            <i class="fas fa-tags text-warning rounded fa-3x"></i>
+          </span>
+          <br />
           <h4 className="text-white">ONLINE BILL SYSTEM</h4>
           <p className="text-white">
             There are many variations of billing system here you go !

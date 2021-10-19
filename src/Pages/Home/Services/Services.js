@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import useFakeDb from '../../Hooks/UseFakeDb/useFakeDb';
 import Service from '../Service/Service';
 import './Services.css';
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-  useEffect(() => {
-    fetch('./fakeDb.json')
-      .then(res => res.json())
-      .then(data => {
-        setServices(data);
-      });
-  }, []);
+  const { services } = useFakeDb();
 
   return (
     <div className="mt-5">

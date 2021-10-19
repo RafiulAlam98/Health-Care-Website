@@ -3,7 +3,6 @@ import Home from './Pages/Home/Home/Home';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AboutUs from './Pages/About/AboutUs';
 import Doctors from './Pages/Doctors/Doctors';
-import Contact from './Pages/Contact/Contact';
 import NotFound from './Pages/NotFound/NotFound';
 import Header from './Pages/Home/Header/Header';
 import Appointment from './Pages/Appointment/Appointment';
@@ -26,16 +25,17 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/about">
+            <PrivateRoute path="/about">
               <AboutUs></AboutUs>
-            </Route>
-            <Route path="/doctors">
-              <Doctors></Doctors>
-            </Route>
-            <PrivateRoute path="/contact">
-              <Contact></Contact>
             </PrivateRoute>
+            <PrivateRoute path="/doctors">
+              <Doctors></Doctors>
+            </PrivateRoute>
+
             <PrivateRoute path="/appointment/:serviceId">
+              <Appointment></Appointment>
+            </PrivateRoute>
+            <PrivateRoute path="/appointment">
               <Appointment></Appointment>
             </PrivateRoute>
             <Route path="/login">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../Hooks/UseAuth/useAuth';
 
@@ -17,15 +18,20 @@ const Header = () => {
         className="navbar-style"
       >
         <Container fluid>
-          <Navbar.Brand href="#home">HEALTH CARE</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <span className="text-white">MEDI </span>
+            <span className="text-info">PLUS </span>
+            <span className="text-white">HEALTH </span>
+            <span className="text-info">CARE</span>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0"
+              className="ms-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link as={HashLink} to="/home#home">
+              <Nav.Link as={HashLink} className="text-warning" to="/home#home">
                 HOME
               </Nav.Link>
               <Nav.Link as={HashLink} to="/about#about">
@@ -34,10 +40,8 @@ const Header = () => {
               <Nav.Link as={HashLink} to="/doctors#doctors">
                 DOCTORS
               </Nav.Link>
-              <Nav.Link as={HashLink} to="/contact#contact">
-                CONTACT US
-              </Nav.Link>
-              <Nav.Link as={HashLink} to="/appointment#appointment">
+
+              <Nav.Link as={Link} to="/appointment">
                 APPOINTMENT
               </Nav.Link>
 
@@ -52,7 +56,8 @@ const Header = () => {
               )}
 
               <Navbar.Text className="text-white mx-5">
-                Signed in as: {user.displayName}
+                <span className="text-info">Signed in as: </span>
+                {user.displayName}
               </Navbar.Text>
             </Nav>
           </Navbar.Collapse>

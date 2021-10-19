@@ -32,10 +32,10 @@ const Footer = () => {
               <span className="text-info"> example@gmail.com</span>
             </h6>
             <span className="mx-2">
-              <i className="fab fa-facebook text-white rounded fa-2x"></i>
-              <i class="fab fa-twitter text-white rounded fa-2x"></i>
-              <i class="fab fa-google-plus text-white rounded fa-2x"></i>
-              <i class="fab fa-linkedin text-white rounded fa-2x"></i>
+              <i className="fab fa-facebook text-warning rounded fa-2x"></i>
+              <i class="fab fa-twitter text-warning rounded fa-2x"></i>
+              <i class="fab fa-google-plus text-warning rounded fa-2x"></i>
+              <i class="fab fa-linkedin text-warning rounded fa-2x"></i>
             </span>
           </Col>
           <Col xs={12} md={4} className="footer-text">

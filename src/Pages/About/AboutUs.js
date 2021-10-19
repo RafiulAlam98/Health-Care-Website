@@ -6,7 +6,7 @@ import { Carousel, Col, Container, Row } from 'react-bootstrap';
 const AboutUs = () => {
   return (
     <div className="main-container">
-      <h1 className="text-center about-header">ABOUT US</h1>
+      <h1 className="text-center about-header ">ABOUT US</h1>
       <Container fluid>
         <Row>
           <Col xs={12} md={12}>
