@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Body.css';
 
 const Body = () => {
@@ -9,7 +10,7 @@ const Body = () => {
         <Col
           xs={12}
           md={4}
-          className="col-1-style d-flex flex-column justify-content-center align-items-center p-5"
+          className="col-1-style d-flex flex-column justify-content-center align-items-center text-center p-5"
         >
           <span>
             <i className="far fa-clock text-warning rounded fa-3x"></i>
@@ -42,7 +43,10 @@ const Body = () => {
           <p className="text-white">
             Appointment are available, call us today or book a appointment.
           </p>
-          <button className="appointment-btn">Book Now</button>
+          <Link to="/appointment">
+            {' '}
+            <button className="appointment-btn">Book Now</button>
+          </Link>
         </Col>
         <Col
           xs={12}

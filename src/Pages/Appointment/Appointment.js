@@ -37,7 +37,7 @@ const Appointment = () => {
                 {findService?.description}
               </Card.Text>
               <Link to="/home">
-                <Button variant="primary">Click Me</Button>
+                <Button variant="warning">Home</Button>
               </Link>
             </Card.Body>
           </Card>

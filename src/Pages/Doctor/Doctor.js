@@ -12,7 +12,7 @@ const Doctor = props => {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{designation}</Card.Text>
-            <Button variant="primary">Click Me</Button>
+            <Button variant="info ">Read Me</Button>
           </Card.Body>
         </Card>
       </Col>

@@ -1,0 +1,12 @@
+.extra-icon {
+  border-bottom: 2px solid lightgray;
+  padding: 60px;
+
+}
+
+.single-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

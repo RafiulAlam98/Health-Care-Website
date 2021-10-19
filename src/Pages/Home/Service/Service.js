@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Service = props => {
   const { id, name, img, description } = props.service;
   return (
-    <Col xs={12} md={12} className="single-card">
+    <Col xs={12} md={12} className="single-card mt-4">
       <div className="card-info">
         <img className="img-fluid" src={img} alt="" />
         <div className="mx-5">

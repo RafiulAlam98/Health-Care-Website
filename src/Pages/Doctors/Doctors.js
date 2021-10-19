@@ -13,7 +13,15 @@ const Doctors = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-center about-header">MEET OUR DOCTORS</h1>
+      <h3 className="text-center about-header">MEET OUR DOCTORS</h3>
+      <h1 className="text-center">
+        <span className="text-info">Professional & </span>Enthusiastic
+      </h1>
+      <p className="text-center">
+        But I must explain to you how all this mistaken idea of denouncing
+        pleasure and praising pain was born and I will give you a complete
+        account of the.
+      </p>
       <Container>
         <Row>
           {doctors.map(doctor => (
