@@ -3,19 +3,25 @@ import { useParams } from 'react-router';
 import useFakeDb from '../Hooks/UseFakeDb/useFakeDb';
 
 const Appointment = () => {
-  const { services } = useFakeDb();
+
   let { serviceId } = useParams();
   console.log(serviceId);
-  console.log(services);
-
+  const [services, setServices] = useState([]);
   useEffect(() => {
-    const findService = services.find(service => console.log(service.id));
-    console.log(findService);
-  }, [services]);
+    fetch('/fakeDb.json')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setServices(data);
+      });
+  }, []);
+
+  const findService = services.find(service => service.id == serviceId);
+  console.log(findService);
 
   return (
     <div>
-      <h2>{serviceId}</h2>
+      <h2>{findService?.name}</h2>
     </div>
   );
 };

@@ -16,16 +16,20 @@ initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   const auth = getAuth();
-  const googleProvider = new GoogleAuthProvider();
 
   const googleSignIn = () => {
-    return signInWithPopup(auth, googleProvider).catch(error => {
-      const errorMessage = error.message;
-      console.log(error);
-      setError(errorMessage);
-    });
+    setIsLoading(true);
+    const googleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleProvider)
+      .catch(error => {
+        const errorMessage = error.message;
+        console.log(error);
+        setError(errorMessage);
+      })
+      .finally(() => setIsLoading(false));
   };
 
   // create user  with email and password
@@ -51,6 +55,7 @@ const useFirebase = () => {
   };
 
   const registerUser = () => {
+    setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
         const user = result.user;
@@ -58,11 +63,7 @@ const useFirebase = () => {
         setUser(user);
         setUserName();
       })
-      .catch(error => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        setError(errorMessage);
-      });
+      .finally(() => setIsLoading(false));
   };
 
   const signInWithEmailPassword = () => {
@@ -78,21 +79,25 @@ const useFirebase = () => {
         setError(errorMessage);
       });
   };
-
-  // google sign out
-  const userSignOut = () => {
-    signOut(auth).then(() => {
-      setUser({});
-    });
-  };
-
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       if (user) {
         setUser(user);
+      } else {
+        setUser({});
       }
+      setIsLoading(false);
     });
   }, []);
+
+  // google sign out
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        setUser({});
+      })
+      .finally(() => setIsLoading(false));
+  };
 
   return {
     user,
@@ -106,6 +111,7 @@ const useFirebase = () => {
     error,
     signInWithEmailPassword,
     googleSignIn,
+    isLoading,
   };
 };
 
