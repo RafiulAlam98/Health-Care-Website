@@ -9,7 +9,6 @@ const Services = () => {
     fetch('./fakeDb.json')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setServices(data);
       });
   }, []);
