@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
+import { Card, Col, Button } from 'react-bootstrap';
 import './Doctor.css';
 
 const Doctor = props => {
@@ -7,14 +7,14 @@ const Doctor = props => {
   return (
     <>
       <Col xs={12} md={6} lg={4} className="mt-4">
-        <div className=" doctor-card">
-          <img className="img-fluid" src={img} alt="" />
-          <div className="mx-5">
-            <h5 className="text-primary">{name}</h5>
-            <p className="text-warning">{designation}</p>
-            <button className="btn btn-primary">See More</button>
-          </div>
-        </div>
+        <Card className="text-center">
+          <Card.Img variant="top" src={img} />
+          <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>{designation}</Card.Text>
+            <Button variant="primary">Click Me</Button>
+          </Card.Body>
+        </Card>
       </Col>
     </>
   );

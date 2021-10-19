@@ -45,6 +45,11 @@ const Header = () => {
                 APPOINTMENT
               </Nav.Link>
 
+              <Navbar.Text className="text-white mx-5">
+                <span className="text-info">Signed in as: </span>
+                {user.displayName}
+              </Navbar.Text>
+
               {user.displayName ? (
                 <Button onClick={userSignOut} variant="info" type="submit">
                   LOGOUT
@@ -54,11 +59,6 @@ const Header = () => {
                   LOGIN
                 </Nav.Link>
               )}
-
-              <Navbar.Text className="text-white mx-5">
-                <span className="text-info">Signed in as: </span>
-                {user.displayName}
-              </Navbar.Text>
             </Nav>
           </Navbar.Collapse>
         </Container>
