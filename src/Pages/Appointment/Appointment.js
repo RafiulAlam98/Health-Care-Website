@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import './Appointment.css';
 
 const Appointment = () => {
   let { serviceId } = useParams();
