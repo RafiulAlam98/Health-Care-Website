@@ -1,0 +1,43 @@
+.main-container {
+  background-color: white;
+}
+
+.about-header {
+  color: #DD4124;
+}
+
+.paragraph-text {
+  color: #009B77;
+}
+
+.btn-more {
+  border: 2px solid lightgray;
+  border-radius: 20px;
+  padding: 8px;
+
+}
+
+.btn-more:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 688px) {
+  .about-section {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+  .about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

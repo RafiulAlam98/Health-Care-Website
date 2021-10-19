@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../Hooks/UseAuth/useAuth';
 
 import './Header.css';
 
 const Header = () => {
-  const { user, googleSignIn, googleSignOut } = useAuth();
+  const { user, userSignOut } = useAuth();
   return (
     <>
       <Navbar
@@ -17,7 +17,7 @@ const Header = () => {
         className="navbar-style"
       >
         <Container fluid>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">HEALTH CARE</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -40,13 +40,17 @@ const Header = () => {
               <Nav.Link as={HashLink} to="/appointment#appointment">
                 APPOINTMENT
               </Nav.Link>
-              {user.email ? (
-                <button onClick={googleSignOut}>Logout</button>
+
+              {user.displayName ? (
+                <Button onClick={userSignOut} variant="info" type="submit">
+                  LOGOUT
+                </Button>
               ) : (
-                <Nav.Link as={HashLink} to="/login#login">
+                <Nav.Link as={HashLink} to="/login">
                   LOGIN
                 </Nav.Link>
               )}
+
               <Navbar.Text className="text-white">
                 Signed in as: {user.displayName}
               </Navbar.Text>

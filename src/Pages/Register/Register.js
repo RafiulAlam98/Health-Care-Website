@@ -1,22 +1,32 @@
+import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/UseAuth/useAuth';
 
-const Login = () => {
+const Register = () => {
   const {
     user,
+    name,
     googleSignIn,
+    handleName,
     handleEmail,
     handlePassword,
+    registerUser,
     error,
-    signInWithEmailPassword,
   } = useAuth();
-
   return (
     <>
       <Container className="mt-5">
-        <h1>Please Login</h1>
-        <Form>
+        <h1>Please Register </h1>
+        <Form onSubmit={registerUser}>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Your Name</Form.Label>
+            <Form.Control
+              onBlur={handleName}
+              type="name"
+              placeholder="Your Name"
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -39,12 +49,8 @@ const Login = () => {
           </Form.Group>
         </Form>
 
-        <Button
-          onClick={signInWithEmailPassword}
-          variant="primary"
-          type="submit"
-        >
-          LOGIN
+        <Button onClick={registerUser} variant="primary" type="submit">
+          Sign Up
         </Button>
         <br />
         <br />
@@ -52,7 +58,7 @@ const Login = () => {
           Google Sign In
         </Button>
         <div>
-          <Link to="/register">Not Yet Register?</Link>
+          <Link to="/login">Already Register?</Link>
         </div>
         {!user?.displayName && <p className="text-danger">{error}</p>}
       </Container>
@@ -60,4 +66,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

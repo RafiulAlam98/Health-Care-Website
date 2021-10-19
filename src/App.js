@@ -10,10 +10,12 @@ import Appointment from './Pages/Appointment/Appointment';
 import AuthProvider from './Pages/Context/AuthProvider';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import Register from './Pages/Register/Register';
+import Footer from './Pages/Home/Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <AuthProvider>
         <BrowserRouter>
           <Header></Header>
@@ -27,9 +29,9 @@ function App() {
             <Route path="/about">
               <AboutUs></AboutUs>
             </Route>
-            <PrivateRoute path="/doctors">
+            <Route path="/doctors">
               <Doctors></Doctors>
-            </PrivateRoute>
+            </Route>
             <PrivateRoute path="/contact">
               <Contact></Contact>
             </PrivateRoute>
@@ -39,10 +41,14 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
             <Route path="/*">
               <NotFound></NotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </BrowserRouter>
       </AuthProvider>
     </div>
