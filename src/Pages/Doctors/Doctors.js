@@ -8,7 +8,6 @@ const Doctors = () => {
     fetch('./doctorDb.json')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setDoctors(data);
       });
   }, []);
