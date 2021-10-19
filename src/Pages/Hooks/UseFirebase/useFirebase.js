@@ -6,8 +6,9 @@ import {
   updateProfile,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
 } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import initializeAuthentication from '../../Firebase/firebase.init';
 
 initializeAuthentication();
@@ -15,23 +16,23 @@ initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState('');
-  const [] = useState({});
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
-  // create user  with email and password
-
-  const [name, setName] = useState();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const googleSignIn = () => {
-    signInWithPopup(auth, googleProvider).then(result => {
-      setUser(result.user);
-      console.log(user);
+    return signInWithPopup(auth, googleProvider).catch(error => {
+      const errorMessage = error.message;
+      console.log(error);
+      setError(errorMessage);
     });
   };
+
+  // create user  with email and password
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleName = e => {
     setName(e.target.value);
@@ -84,6 +85,15 @@ const useFirebase = () => {
       setUser({});
     });
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        console.log('get user', user);
+        setUser(user);
+      }
+    });
+  }, []);
 
   return {
     user,

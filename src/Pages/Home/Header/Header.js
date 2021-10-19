@@ -51,7 +51,7 @@ const Header = () => {
                 </Nav.Link>
               )}
 
-              <Navbar.Text className="text-white">
+              <Navbar.Text className="text-white mx-5">
                 Signed in as: {user.displayName}
               </Navbar.Text>
             </Nav>

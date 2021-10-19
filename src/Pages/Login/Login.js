@@ -1,6 +1,7 @@
 import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/UseAuth/useAuth';
+import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
   const {
@@ -11,6 +12,16 @@ const Login = () => {
     error,
     signInWithEmailPassword,
   } = useAuth();
+
+  const location = useLocation();
+  const history = useHistory();
+  const redirectUrl = location.state?.form || './home';
+
+  const handleGoogleLogin = () => {
+    googleSignIn().then(result => {
+      history.push(redirectUrl);
+    });
+  };
 
   return (
     <>
@@ -48,7 +59,7 @@ const Login = () => {
         </Button>
         <br />
         <br />
-        <Button onClick={googleSignIn} variant="info" type="submit">
+        <Button onClick={handleGoogleLogin} variant="info" type="submit">
           Google Sign In
         </Button>
         <div>
